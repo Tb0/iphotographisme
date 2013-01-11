@@ -42,6 +42,13 @@ module IphotographismeV2
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
 
+    # Override default scaffold generator
+    config.generators do |g|
+      g.stylesheets false
+      g.javascripts false
+      g.test_framework :test_unit, fixture_replacement: :factory_girl
+    end
+
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
     # like if you have constraints or database-specific column types

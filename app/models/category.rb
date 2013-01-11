@@ -11,8 +11,7 @@ class Category < ActiveRecord::Base
   ### Relations ###
   #################
   
-  has_many :pictures, through: :category_pictures
-
+  has_many :pictures
 
   ###################
   ### Validations ###

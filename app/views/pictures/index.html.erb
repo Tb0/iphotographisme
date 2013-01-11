@@ -1,6 +1,23 @@
-<h1>iPhotographisme</h1>
+<div id="header">
+	<div id="logo">
+    <h1><a href="/"><span>iPhotographisme</span></a></h1>
+  </div>
+
+	<div id="nav">
+		<div class="category">
+			<%= form_tag('/pictures') do %>
+				<%= label_tag "Catégorie" %>
+				<%= select_tag "Catégorie", options_from_collection_for_select(@categories, "id", "name"), {include_blank: true} %>
+			<% end %>
+		</div>
+	</div>
+ </div>
 
 <% @pictures.each do |picture| %>
-	<%= picture.name %>
-	<%= picture.description %>
+	<div class="view" style="background: url('<%= picture.file_url %>'); width: 200px">
+				<p>
+					<a href="<%= picture.file_url %>" title="<%= picture.name %>"><img src="<%= picture.file_url %>" alt="<%= picture.name %>" /></a>
+					<span class="loveoff"><a href="#"></a></span>
+				</p>
+	</div>
 <% end %>

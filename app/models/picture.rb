@@ -1,17 +1,19 @@
 # -*- encoding : utf-8 -*-
 class Picture < ActiveRecord::Base
 
+	mount_uploader :file, FileUploader
+
   ##################
   ### Attributes ###
   ##################
 
-  attr_accessible :name, :description
+  attr_accessible :name, :description, :file, :category_id
 
   #################
   ### Relations ###
   #################
 
-  has_many :categories, through: :category_pictures
+  belongs_to :category
 
   ###################
   ### Validations ###

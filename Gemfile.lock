@@ -30,6 +30,9 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     builder (3.0.4)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -94,14 +97,15 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.35)
-    uglifier (1.3.0)
+    uglifier (1.0.3)
       execjs (>= 0.3.0)
-      multi_json (~> 1.0, >= 1.0.2)
+      multi_json (>= 1.0.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  carrierwave (= 0.8.0)
   factory_girl_rails (= 4.1.0)
   jquery-rails (= 2.1.4)
   magic_encoding (= 0.0.2)
@@ -109,4 +113,4 @@ DEPENDENCIES
   mocha (= 0.13.1)
   pg (= 0.14.1)
   rails (= 3.2.9)
-  uglifier (>= 1.0.3)
+  uglifier (= 1.0.3)

@@ -4,6 +4,10 @@ class Picture < ActiveRecord::Base
 	mount_uploader :file, FileUploader
 
   ##################
+  UPLOAD_PATH = File.join(File.dirname(__FILE__),'../../public').freeze
+  ##################
+
+  ##################
   ### Attributes ###
   ##################
 
@@ -21,5 +25,9 @@ class Picture < ActiveRecord::Base
 
   validates :name,  presence: true
   validates :file, presence: true
+
+  def width(filepath)
+    @width ||= Magick::Image::read("#{UPLOAD_PATH}#{filepath}").first.columns
+  end
 
 end

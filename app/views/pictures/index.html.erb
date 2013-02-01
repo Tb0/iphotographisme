@@ -1,4 +1,5 @@
 <div id="header">
+	
 	<div id="logo">
     <h1><a href="/"><span>iPhotographisme</span></a></h1>
   </div>
@@ -11,13 +12,29 @@
 			<% end %>
 		</div>
 	</div>
- </div>
 
-<% @pictures.each do |picture| %>
-	<div class="view" style="background: url('<%= picture.file_url %>'); width: 200px">
-				<p>
-					<a href="<%= picture.file_url %>" title="<%= picture.name %>"><img src="<%= picture.file_url %>" alt="<%= picture.name %>" /></a>
-					<span class="loveoff"><a href="#"></a></span>
-				</p>
+</div>
+
+<div id="content">
+
+	<div class="navigation">
+			<p class="previous"><a href="#">Previous</a></p>
 	</div>
-<% end %>
+
+	<% @pictures.each do |picture| %>
+		<div class="view" style="background: url('<%= picture.file.resized %>'); width: <%= picture.width(picture.file.resized) %>px">
+					<p>
+						<a href="<%= picture.file_url %>" title="<%= picture.name %>"><img src="<%= picture.file.resized %>" alt="<%= picture.name %>" /></a>
+						<span class="loveoff"><a href="#"></a></span>
+					</p>
+		</div>
+	<% end %>
+
+	<div class="navigation">
+			<p class="next"><a href="#">Next</a></p>
+	</div>
+
+</div>
+
+
+

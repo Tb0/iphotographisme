@@ -26,20 +26,28 @@ class Picture < ActiveRecord::Base
   validates :name,  presence: true
   validates :file, presence: true
 
+  def image
+    @image ||= MiniMagick::Image.open("#{UPLOAD_PATH}#{file_url}")
+  end
+
+  def resized_image
+    @resized_image ||= MiniMagick::Image.open("#{UPLOAD_PATH}#{file.resized}") 
+  end
+
   def original_width
-    @original_width ||= Magick::Image::read("#{UPLOAD_PATH}#{file_url}").first.columns 
+    @original_width ||= image['width'] 
   end
 
   def resized_width
-    @resized_width ||= Magick::Image::read("#{UPLOAD_PATH}#{file.resized}").first.columns 
+    @resized_width ||= resized_image['width']
   end
 
   def original_height
-    @original_height ||= Magick::Image::read("#{UPLOAD_PATH}#{file_url}").first.rows
+    @original_height ||= image['height']
   end
 
   def resized_height
-    @original_height ||= Magick::Image::read("#{UPLOAD_PATH}#{file.resized}").first.rows
+    @resized_height ||= resized_image['height']
   end
 
   def resized_picture_path

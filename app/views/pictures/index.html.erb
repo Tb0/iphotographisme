@@ -17,14 +17,16 @@
 
 <div id="content">
 
-	<div class="navigation">
-			<p class="previous"><a href="#">Previous</a></p>
-	</div>
+	<% if @pictures.previous_page %>
+		<div class="navigation">
+			 <p class="previous"><%= link_to "Previous", params.merge(:page => @pictures.previous_page) %></p> 
+		</div>
+	<%end%>
 
 	<% @pictures.each do |picture| %>
 		<div class="view" style="background: url('<%= picture.resized_picture_path %>'); width: <%= picture.resized_width %>px">
 					<p>
-						<a href="<%= picture.original_picture_path %>" title="<%= picture.name %>" rel="prettyPhoto">
+						<a href="<%= picture.original_picture_path %>" title="<%= picture.name %>" class="fancybox" rel="gallery">
 							<img src="<%= picture.original_picture_path %>" alt="<%= picture.name %>" width="<%= picture.original_width %>" height="<%= picture.original_height %>" />
 						</a>
 						<span class="loveoff"><a href="#"></a></span>
@@ -32,9 +34,11 @@
 		</div>
 	<% end %>
 
-	<div class="navigation">
-			<p class="next"><a href="#">Next</a></p>
-	</div>
+	<% if @pictures.next_page %>
+		<div class="navigation">
+			 <p class="next"><%= link_to "Next", params.merge(:page => @pictures.next_page) %></p> 
+		</div>
+	<%end%>
 
 </div>
 

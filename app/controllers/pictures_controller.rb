@@ -2,7 +2,7 @@
 class PicturesController < ApplicationController
 
 	def index
-		@pictures = Picture.all
+		@pictures = Picture.order("created_at").page(params[:page]).per_page(8)
 		@categories = Category.all
 	end
 

@@ -13,3 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require fancybox
+
+$(document).ready(function() {
+
+	$(".fancybox").fancybox({
+		openEffect	: 'fade',
+		closeEffect	: 'fade'
+	});
+	
+	$('#content').infinitescroll({
+
+		navSelector  : "div.navigation",            
+		               // selector for the paged navigation (it will be hidden)
+		nextSelector : "div.navigation p.next a",    
+		               // selector for the NEXT link (to page 2)
+		itemSelector : "#content div.view",          
+		               // selector for all items you'll retrieve
+		extraScrollPx: 50
+	});
+
+});

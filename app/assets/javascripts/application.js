@@ -27,7 +27,6 @@ $(document).ready(function() {
 		item: 'div.view',
 		pagination: 'div.navigation',
 		next: 'div.navigation p.next a',
-		loader: '<img src="images/loader.gif"/>'
 	});
 
 });

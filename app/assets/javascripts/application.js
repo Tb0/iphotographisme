@@ -22,15 +22,12 @@ $(document).ready(function() {
 		closeEffect	: 'fade'
 	});
 	
-	$('#content').infinitescroll({
-
-		navSelector  : "div.navigation",            
-		               // selector for the paged navigation (it will be hidden)
-		nextSelector : "div.navigation p.next a",    
-		               // selector for the NEXT link (to page 2)
-		itemSelector : "#content div.view",          
-		               // selector for all items you'll retrieve
-		extraScrollPx: 50
+	jQuery.ias({
+		container : '#content',
+		item: 'div.view',
+		pagination: 'div.navigation',
+		next: 'div.navigation p.next a',
+		loader: '<img src="images/loader.gif"/>'
 	});
 
 });

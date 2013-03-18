@@ -27,6 +27,7 @@ $(document).ready(function() {
 		item: 'div.view',
 		pagination: 'div.navigation',
 		next: 'div.navigation p.next a',
+		noneleft: 'There is no more photos to display!'
 	});
 
 });

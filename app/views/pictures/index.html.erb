@@ -27,7 +27,7 @@
 		<div class="view" style="background: url('<%= picture.resized_picture_path %>'); width: <%= picture.resized_width %>px">
 					<p>
 						<a href="<%= picture.original_picture_path %>" title="<%= picture.name %>" class="fancybox" rel="gallery">
-							<img src="<%= picture.original_picture_path %>" alt="<%= picture.name %>" width="<%= picture.original_width %>" height="<%= picture.original_height %>" />
+							<img src="<%= picture.resized_picture_path %>" alt="<%= picture.name %>" width="<%= picture.original_width %>" height="<%= picture.original_height %>" />
 						</a>
 					</p>
 		</div>

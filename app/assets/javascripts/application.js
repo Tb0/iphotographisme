@@ -30,4 +30,6 @@ $(document).ready(function() {
 		noneleft: 'There is no more photos to display!'
 	});
 
+	$("#cat_form select").on("change", function() { $(this).closest("form").submit(); });
+
 });

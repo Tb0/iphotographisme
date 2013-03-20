@@ -2,12 +2,10 @@
 class PicturesController < ApplicationController
 
 	def index
-		if params[:category_id]
-		 category  = Category.find(params[:category_id])
-		 raise category
-		 @pictures = category.pictures
+		if @category = Category.find_by_id(params[:category_id]) 
+		  @pictures = @category.pictures.order("created_at").page(params[:page]).per_page(20)
 		else
-		@pictures = Picture.order("created_at").page(params[:page]).per_page(20)
+		  @pictures = Picture.order("created_at").page(params[:page]).per_page(20)
 		end
 	end
 
